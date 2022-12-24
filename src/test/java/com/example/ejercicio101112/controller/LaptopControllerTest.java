@@ -37,7 +37,7 @@ class LaptopControllerTest {
     @BeforeEach
     void setUp () {
         restTemplateBuilder = restTemplateBuilder.rootUri("http://localhost:" + port);
-        restTemplate        = new TestRestTemplate(restTemplateBuilder);
+        restTemplate        = new TestRestTemplate(restTemplateBuilder, "admin", "123");
         if (repository.count() == 0){
             Laptop lenovo = new Laptop(null, "Lenovo");
             Laptop     bgh    = new Laptop(null, "BGH");

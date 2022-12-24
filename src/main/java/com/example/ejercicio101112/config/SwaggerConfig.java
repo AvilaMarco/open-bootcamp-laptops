@@ -19,8 +19,8 @@ public class SwaggerConfig {
 
     private Info apiDetails () {
         return new Info()
-          .title("Exercise 7, 8, 9 OB")
-          .description("Open Bootcamp 's Spring course, CRUD with Swagger and Testing Rest Template")
+          .title("Exercise 10, 11 y 12 OB")
+          .description("Open Bootcamp 's Spring course, CRUD with Swagger, Testing Rest Template and Spring security")
           .version("v1.0.0")
           .license(apiLicense());
     }

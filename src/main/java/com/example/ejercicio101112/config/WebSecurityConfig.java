@@ -3,6 +3,7 @@ package com.example.ejercicio101112.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,7 +21,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain( HttpSecurity http) throws Exception {
         http.csrf().disable()
           .authorizeHttpRequests((authz) -> authz
-            .requestMatchers(DELETE, "/api/laptops").hasRole("ADMIN")
+            .requestMatchers(DELETE, "/api/laptops").hasAnyRole("ADMIN")
             .requestMatchers("/").anonymous()
             .anyRequest().authenticated()
           )
@@ -29,6 +30,11 @@ public class WebSecurityConfig {
           ;
 
         return http.build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/swagger-ui");
     }
 
     @Bean
@@ -42,7 +48,7 @@ public class WebSecurityConfig {
 
         UserDetails admin = User.builder()
           .username("admin")
-          .password("ñ")
+          .password("123")
           .roles("USER", "ADMIN")
           .passwordEncoder(encoder()::encode)
           .build();
