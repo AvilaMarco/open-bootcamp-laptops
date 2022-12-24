@@ -5,6 +5,8 @@
 - Test Rest Template
 - sprint security 6.0.0
 - Encripted by bcryp
+# Deploy
+[deploy app in railway](https://ob-laptops.up.railway.app/)
 ## Ejercicio 1
 
 Probar a empaquetar la aplicación con maven package desde Intellij IDEA
