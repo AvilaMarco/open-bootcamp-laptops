@@ -5,4 +5,4 @@ springdoc:
     path: /swagger-ui
 spring:
   profiles:
-    active: dev
+    active: ${SCOPE}
